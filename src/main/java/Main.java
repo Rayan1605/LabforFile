@@ -1,17 +1,24 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main {
-    //File is an abstract representation of file and directory pathnames
     public static void main(String[] args) {
-        File file = new File("message.txt");
-       if (file.exists()){ // just to check if it exist in the same project folder
-           System.out.println(file.getPath());
-           System.out.println(file.getAbsoluteFile());
-           System.out.println(file.length());
-       }
-       else{
-           System.out.println("that file does not exist ");
-       }
+        Scanner myinput = new Scanner(System.in);
+        System.out.println("Enter the Filename");
+        String filename =  myinput.nextLine();
+        try {
+            Scanner file = new Scanner( new File(filename));
+            while (file.hasNextLine()){
+                String data = file.nextLine();
+                System.out.println(data);
+            }
+            file.close();
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        }
+
+
 
     }
 }
