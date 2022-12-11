@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Main {
     //File is an abstract representation of file and directory pathnames
@@ -16,9 +17,9 @@ public class Main {
            System.out.println("that file does not exist ");
        }
         try {
-            FileWriter writer = new FileWriter("message.txt",true);
-            writer.write("\n I  am  very close to finishing my  java project ");
-
+            PrintWriter writer = new PrintWriter( new FileWriter("message.txt",true));
+            System.out.println();
+            writer.println("I am one step away from finishing ");
             writer.close();
         } catch (IOException e) {  // Just in case  the  input failed .
             System.out.println("An error occurred   writing to file ");
